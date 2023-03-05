@@ -1,0 +1,47 @@
+3 models >
+
+1 user -- many posts
+1 post -- belongs to 1 user
+1 user -- many comments
+1 comment -- by 1 user
+1 post -- many comments
+1 comment -- belongs to 1 post
+
+
+user : posts -> 1:n
+user : comments -> 1:n
+post : comments -> 1:n
+
+----------------------------------------------------------------------------------------------
+
+reference article >
+https://dev.to/nedsoft/getting-started-with-sequelize-and-postgres-emp
+
+
+----------------------------------------------------------------------------------------------
+
+points to remember >
+
+> install sequelize-cli globally using -g flag
+> create a ".sequelizerc" file with that code, then run "sequelize init" to generate models, migrations, config files and folders
+> then, edit the config file with your own database details
+> then, generate models (relations) using "sequelize models:generate --name <name_of_table> --attributes <attribute1>:<data_type1>, <attribute2>:<data_type2>" format
+> then, edit each of the files in the "models" folder, adding the specific associations
+> then, create the tables with the "sequelize db:migrate" command
+
+
+> or, can create it by populating "app.js" with the await sequelize.sync() command and running it through node -- nicer, preferred by me.
+> open insomnia, make a post request to whatever url you specified
+> send the data in the specified format, see response :D
+
+----------------------------------------------------------------------------------------------
+
+commands used on the psql terminal >
+
+> \l | listing all databses
+> \c <databse_name> | connect with some database
+> \d <table_name> | to describe table name | use quotes if it starts with a capital letter
+> \dt | to see all tables in a certain db
+> DROP TABLE IF EXISTS <table_name> | in quotes if starts with capital letter
+> select * form <table_name>
+
